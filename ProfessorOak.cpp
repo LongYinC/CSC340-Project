@@ -17,29 +17,4 @@ int getMenuOption(){
     return userInput;;
 }
 
-int main(){
-    int userInput = getMenuOption();
-    bool active = true;
-    while(active == true){
-        switch(userInput){
-            case PRINT_TEAM:
-                break;
-            case PRINT_NURSERY:
-                break;
-            case PRINT_CENTER:
-                break;
-            case ADD_TEAM:
-                break;
-            case ADD_NURSERY:
-                break;
-            case ADD_CENTER:
-                break;
-            case CATCH:
-                break;
-            default:
-                active = false;
-                break;
-        }
-    }
-    return 0;
-}
+
