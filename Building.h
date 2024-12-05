@@ -10,9 +10,11 @@ using namespace std;
 class Building {
     private:
         string name;
-        LinkedList list;
+        LinkedList* list;
 
     public:
+        Building();
+        virtual ~Building();
         virtual string getName();
         virtual LinkedList* getList();
         virtual void setName();
