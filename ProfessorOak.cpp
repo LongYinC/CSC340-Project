@@ -1,5 +1,9 @@
 #include <iostream>
 #include "ProfessorOak.h"
+#include "Buildings.h"
+#include "Pokemon.h"
+#include "Buildings.cpp"
+#include "Pokemon.cpp"
 #include <random>
 #include <string>
 #include <fstream>
@@ -15,9 +19,9 @@ int ProfessorOak::getMenuOption(){
     cout << "(" << ADD_TEAM << ") Add pokemon to team" << endl;
     cout << "(" << ADD_NURSERY << ") Add pokemon to nursery" << endl;
     cout << "(" << ADD_CENTER << ") Add pokemon to center" << endl;
-    cout << "(" << REMOVE_TEAM << ") Remove pokemon to team" << endl;
-    cout << "(" << REMOVE_NURSERY << ") Remove pokemon to nursery" << endl;
-    cout << "(" << REMOVE_CENTER << ") Remove pokemon to center" << endl;
+    cout << "(" << REMOVE_TEAM << ") Remove pokemon from team" << endl;
+    cout << "(" << REMOVE_NURSERY << ") Remove pokemon from nursery" << endl;
+    cout << "(" << REMOVE_CENTER << ") Remove pokemon from center" << endl;
     cout << "(" << CATCH << ") Catch pokemon" << endl;
     cout << "Please enter your choice: ";
     cin >> userInput;

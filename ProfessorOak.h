@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include "Buildings.h"
+#include "Pokemon.h"
 
 enum Actions {QUIT, PRINT_TEAM, PRINT_NURSERY, PRINT_CENTER, ADD_TEAM, ADD_NURSERY, ADD_CENTER, REMOVE_TEAM, REMOVE_NURSERY, REMOVE_CENTER, CATCH};
 
