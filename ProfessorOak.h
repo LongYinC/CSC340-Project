@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "LinkedList.h"
+#include "Buildings.h"
 
 enum Actions {QUIT, PRINT_TEAM, PRINT_NURSERY, PRINT_CENTER, ADD_TEAM, ADD_NURSERY, ADD_CENTER, CATCH};
 

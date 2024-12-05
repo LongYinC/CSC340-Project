@@ -6,11 +6,12 @@
 #include <fstream>
 
 
-struct BUILDINGS{
+struct Buildings{
    private:
       int listSize;
       Pokemon* head;
       Pokemon* tail;
+      std::string name;
    public:
       int size()const;
       Pokemon* getHead()const;
@@ -25,7 +26,8 @@ struct BUILDINGS{
       void print();
       void printReverse();
       Buildings();
-      Buildings(std::string word);
+      Buildings(std::string name);
+      Buildings(std::string name, std::string word);
       ~Buildings();
       Buildings& operator+=(Buildings& other);
       void mergeDicts(Buildings* listB);

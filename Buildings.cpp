@@ -5,13 +5,22 @@ using namespace std;
 Buildings::Buildings(){
    (*this).listSize = 0;
    (*this).head = nullptr;
-   (*this).tail = nullptr;   
+   (*this).tail = nullptr;
+   (*this).name = "Building";  
 }
 
-Buildings::Buildings(string word){
+Buildings::Buildings(string name){
    (*this).listSize = 0;
    (*this).head = nullptr;
    (*this).tail = nullptr;
+   (*this).name = name;
+}
+
+Buildings::Buildings(string name, string word){
+   (*this).listSize = 0;
+   (*this).head = nullptr;
+   (*this).tail = nullptr;
+   (*this).name = name;
    (*this).push_back(word);
 }
 
@@ -90,25 +99,25 @@ void Buildings::setTail(Pokemon* tail){
    (*this).tail = tail;   
 }
 
-Pokemon* Buildings::deleteWord(Pokemon* Pokemon){
+Pokemon* Buildings::deleteWord(Pokemon* pokemon){
    if(Pokemon == nullptr){
       return nullptr;   
    }   
    
-   Pokemon* next = Pokemon->getNext();
-   if(Pokemon->getPrev() != nullptr){
-      Pokemon->getPrev()->setNext(Pokemon->getNext());
+   Pokemon* next = pokemon->getNext();
+   if(pokemon->getPrev() != nullptr){
+      pokemon->getPrev()->setNext(pokemon->getNext());
    }
    else{
-      (*this).head = Pokemon->getNext();   
+      (*this).head = pokemon->getNext();   
    }
-   if(Pokemon->getNext() != nullptr){
-      Pokemon->getNext()->setPrev(Pokemon->getPrev()); 
+   if(pokemon->getNext() != nullptr){
+      pokemon->getNext()->setPrev(pokemon->getPrev()); 
    }
    else{
-      (*this).tail = Pokemon->getPrev();   
+      (*this).tail = pokemon->getPrev();   
    }
-   delete Pokemon;
+   delete pokemon;
    (*this).listSize--; 
    return next;
 }
