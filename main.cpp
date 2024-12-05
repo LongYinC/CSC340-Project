@@ -4,25 +4,6 @@
 #include "ProfessorOak.cpp"
 using namespace std;
 
-
-/*enum Actions {QUIT, PRINT_TEAM, PRINT_NURSERY, PRINT_CENTER, ADD_TEAM, ADD_NURSERY, ADD_CENTER, CATCH};
-
-int getMenuOption(){
-    int userInput;
-    cout << "(" << PRINT_TEAM << ") Display team" << endl;
-    cout << "(" << PRINT_NURSERY << ") Display nursery" << endl;
-    cout << "(" << PRINT_CENTER << ") Display center" << endl;
-    cout << "(" << ADD_TEAM << ") Add pokemon to team" << endl;
-    cout << "(" << ADD_NURSERY << ") Add pokemon to nursery" << endl;
-    cout << "(" << ADD_CENTER << ") Add pokemon to center" << endl;
-    cout << "(" << CATCH << ") Catch pokemon" << endl;
-    cin >> userInput;
-    return userInput;
-}
-*/
-
-
-
 int main(){
     ProfessorOak* oak = new ProfessorOak();
     int userInput = oak->getMenuOption();
@@ -30,18 +11,25 @@ int main(){
     while(active == true){
         switch(userInput){
             case PRINT_TEAM:
+                userInput = oak->getMenuOption();
                 break;
             case PRINT_NURSERY:
+                userInput = oak->getMenuOption();
                 break;
             case PRINT_CENTER:
+                userInput = oak->getMenuOption();
                 break;
             case ADD_TEAM:
+                userInput = oak->getMenuOption();
                 break;
             case ADD_NURSERY:
+                userInput = oak->getMenuOption();
                 break;
             case ADD_CENTER:
+                userInput = oak->getMenuOption();
                 break;
             case CATCH:
+                userInput = oak->getMenuOption();
                 break;
             default:
                 active = false;

@@ -13,9 +13,16 @@ int ProfessorOak::getMenuOption(){
     cout << "(" << ADD_NURSERY << ") Add pokemon to nursery" << endl;
     cout << "(" << ADD_CENTER << ") Add pokemon to center" << endl;
     cout << "(" << CATCH << ") Catch pokemon" << endl;
+    cout << "Please enter your choice: ";
     cin >> userInput;
     return userInput;
 }
+
+void ProfessorOak::printTeam(){}
+
+void ProfessorOak::printNursery(){}
+
+void ProfessorOak::printCenter(){}
 
 
 
