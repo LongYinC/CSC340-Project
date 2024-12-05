@@ -60,7 +60,7 @@ void ProfessorOak::removeNursery(Buildings* building, Pokemon* pokemon){}
 
 void ProfessorOak::removeCenter(Buildings* building, Pokemon* pokemon){}
 
-void ProfessorOak::catchPokemon(){
+void ProfessorOak::catchPokemon(Buildings* team, Buildings* center){
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> distrib(1, 151);
