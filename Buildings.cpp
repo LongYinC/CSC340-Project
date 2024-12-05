@@ -100,7 +100,7 @@ void Buildings::setTail(Pokemon* tail){
 }
 
 Pokemon* Buildings::deleteWord(Pokemon* pokemon){
-   if(Pokemon == nullptr){
+   if(pokemon == nullptr){
       return nullptr;   
    }   
    
@@ -126,21 +126,21 @@ Pokemon* Buildings::insert_before(string newWord, Pokemon* knownPokemon){
    if(knownPokemon == nullptr){
       return nullptr;   
    }   
-   Pokemon* Pokemon = new Pokemon(newWord);
+   Pokemon* pokemon = new Pokemon(newWord);
    
-   Pokemon->setNext(knownPokemon);
-   Pokemon->setPrev(knownPokemon->getPrev());
+   pokemon->setNext(knownPokemon);
+   pokemon->setPrev(knownPokemon->getPrev());
    
    if(knownPokemon->getPrev() != nullptr){
-      knownPokemon->getPrev()->setNext(Pokemon);   
+      knownPokemon->getPrev()->setNext(pokemon);   
    }
    else{
-      (*this).head = Pokemon;   
+      (*this).head = pokemon;   
    }
    
-   knownPokemon->setPrev(Pokemon);
+   knownPokemon->setPrev(pokemon);
    (*this).listSize++;
-   return Pokemon;
+   return pokemon;
 }
 
 Buildings& Buildings::operator+=(Buildings& other){
