@@ -10,9 +10,9 @@ enum Actions {QUIT, PRINT_TEAM, PRINT_NURSERY, PRINT_CENTER, ADD_TEAM, ADD_NURSE
 struct ProfessorOak{
     ProfessorOak();
     int getMenuOption();
-    void printTeam();
-    void printNursery();
-    void printCenter();
+    void printTeam(Buildings* building);
+    void printNursery(Buildings* building);
+    void printCenter(Buildings* building);
     void addTeam(Buildings* building, Pokemon* pokemon);
     void addNursery(Buildings* building, Pokemon* pokemon);
     void addCenter(Buildings* building, Pokemon* pokemon);

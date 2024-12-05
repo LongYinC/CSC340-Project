@@ -21,11 +21,20 @@ int ProfessorOak::getMenuOption(){
     return userInput;
 }
 
-void ProfessorOak::printTeam(){}
+void ProfessorOak::printTeam(Buildings* building){
+    cout << "Team: " << endl;
+    building->print();
+}
 
-void ProfessorOak::printNursery(){}
+void ProfessorOak::printNursery(Buildings* building){
+    cout << "Nursery: " << endl;
+    building->print();
+}
 
-void ProfessorOak::printCenter(){}
+void ProfessorOak::printCenter(Buildings* building){
+    cout << "Center: " << endl;
+    building->print();
+}
 
 void ProfessorOak::addTeam(Buildings* building, Pokemon* pokemon){}
 
