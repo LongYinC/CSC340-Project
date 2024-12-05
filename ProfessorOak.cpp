@@ -1,5 +1,8 @@
 #include <iostream>
 #include "ProfessorOak.h"
+#include <random>
+#include <string>
+#include <fstream>
 using namespace std;
 
 ProfessorOak::ProfessorOak(){}
@@ -57,7 +60,36 @@ void ProfessorOak::removeNursery(Buildings* building, Pokemon* pokemon){}
 
 void ProfessorOak::removeCenter(Buildings* building, Pokemon* pokemon){}
 
-void ProfessorOak::catchPokemon(){}
+void ProfessorOak::catchPokemon(){
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distrib(1, 151);
+
+    int random_pokeNum = distrib(gen);
+
+    ifstream file("pokemonName.txt");
+    if(!file){
+        cout << "Error opening file!" << endl;
+    }
+    string pokemonName;
+    int indexNum = 0;
+
+    while(getline(file, pokemonName)){
+        indexNum++;
+        if(indexNum == random_pokeNum){
+            cout << "You caught " << pokemonName << "!" << endl;
+            break;
+        }
+    }
+    file.close();
+    if(team->size() >= 6){
+        center->push_back(new Pokemon(pokemonName));
+        cout << pokemonName << " has been sent to your pokemon center." << endl;
+    } else {
+        team->push_back(new Pokemon(pokemonName));
+        cout << pokemonName << " has been added to your team!" << endl;
+    }
+}
 
 
 
