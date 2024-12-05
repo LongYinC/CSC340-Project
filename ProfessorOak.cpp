@@ -36,11 +36,20 @@ void ProfessorOak::printCenter(Buildings* building){
     building->print();
 }
 
-void ProfessorOak::addTeam(Buildings* building, Pokemon* pokemon){}
+void ProfessorOak::addTeam(Buildings* building, Pokemon* pokemon){
+    cout << "Add Pokemon to the Team: " << endl;
+    building -> add(pokemon);
+}
 
-void ProfessorOak::addNursery(Buildings* building, Pokemon* pokemon){}
+void ProfessorOak::addNursery(Buildings* building, Pokemon* pokemon){
+    cout << "Add Pokemon to the Nursery: " << endl;
+    building -> add(pokemon);
+}
 
-void ProfessorOak::addCenter(Buildings* building, Pokemon* pokemon){}
+void ProfessorOak::addCenter(Buildings* building, Pokemon* pokemon){
+    cout << "Add Pokemon to the Center: " << endl;
+    building -> add(pokemon);
+}
 
 void ProfessorOak::removeTeam(Buildings* building, Pokemon* pokemon){}
 
