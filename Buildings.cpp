@@ -1,24 +1,24 @@
-#include "LinkedList.h"
+#include "Buildings.h"
 #include <string>
 using namespace std;
 
-LinkedList::LinkedList(){
+Buildings::Buildings(){
    (*this).listSize = 0;
    (*this).head = nullptr;
    (*this).tail = nullptr;   
 }
 
-LinkedList::LinkedList(string word){
+Buildings::Buildings(string word){
    (*this).listSize = 0;
    (*this).head = nullptr;
    (*this).tail = nullptr;
    (*this).push_back(word);
 }
 
-LinkedList::~LinkedList(){
-   Node* current = (*this).head;
+Buildings::~Buildings(){
+   Pokemon* current = (*this).head;
    while(current != nullptr){
-      Node* next = current->getNext();
+      Pokemon* next = current->getNext();
       delete current;
       current = next;
    }
@@ -26,8 +26,8 @@ LinkedList::~LinkedList(){
 }
 
 
-void LinkedList::push_back(string word){
-   Node* temp = new Node(word);
+void Buildings::push_back(string word){
+   Pokemon* temp = new Pokemon(word);
    if((*this).tail){
       (*this).tail->setNext(temp);
       temp->setPrev((*this).tail);
@@ -39,28 +39,28 @@ void LinkedList::push_back(string word){
    (*this).listSize++; 
 }
 
-void LinkedList::push_back(Node* newWordNode){
-   if(newWordNode == nullptr){
+void Buildings::push_back(Pokemon* newWordPokemon){
+   if(newWordPokemon == nullptr){
       return;   
    }
-   newWordNode->setNext(nullptr);
+   newWordPokemon->setNext(nullptr);
    if(!(*this).head){
-      (*this).head = newWordNode;
-      (*this).tail = newWordNode;
+      (*this).head = newWordPokemon;
+      (*this).tail = newWordPokemon;
    }
    else{
-      newWordNode->setPrev(tail);
-      (*this).tail->setNext(newWordNode);
-      (*this).tail = newWordNode;
+      newWordPokemon->setPrev(tail);
+      (*this).tail->setNext(newWordPokemon);
+      (*this).tail = newWordPokemon;
    }
    (*this).listSize++;
 }
 
-int LinkedList::size()const{
+int Buildings::size()const{
    return (*this).listSize;   
 }
 
-void LinkedList::loadFile(string fileName){
+void Buildings::loadFile(string fileName){
    ifstream inFS;
    inFS.open(fileName);
    if(!inFS.is_open()){
@@ -74,69 +74,69 @@ void LinkedList::loadFile(string fileName){
    inFS.close();
 }
 
-Node* LinkedList::getHead()const{
+Pokemon* Buildings::getHead()const{
    return (*this).head;   
 }
 
-void LinkedList::setHead(Node* head){
+void Buildings::setHead(Pokemon* head){
    (*this).head = head;   
 }
 
-Node* LinkedList::getTail()const{
+Pokemon* Buildings::getTail()const{
    return (*this).tail;   
 }
 
-void LinkedList::setTail(Node* tail){
+void Buildings::setTail(Pokemon* tail){
    (*this).tail = tail;   
 }
 
-Node* LinkedList::deleteWord(Node* node){
-   if(node == nullptr){
+Pokemon* Buildings::deleteWord(Pokemon* Pokemon){
+   if(Pokemon == nullptr){
       return nullptr;   
    }   
    
-   Node* next = node->getNext();
-   if(node->getPrev() != nullptr){
-      node->getPrev()->setNext(node->getNext());
+   Pokemon* next = Pokemon->getNext();
+   if(Pokemon->getPrev() != nullptr){
+      Pokemon->getPrev()->setNext(Pokemon->getNext());
    }
    else{
-      (*this).head = node->getNext();   
+      (*this).head = Pokemon->getNext();   
    }
-   if(node->getNext() != nullptr){
-      node->getNext()->setPrev(node->getPrev()); 
+   if(Pokemon->getNext() != nullptr){
+      Pokemon->getNext()->setPrev(Pokemon->getPrev()); 
    }
    else{
-      (*this).tail = node->getPrev();   
+      (*this).tail = Pokemon->getPrev();   
    }
-   delete node;
+   delete Pokemon;
    (*this).listSize--; 
    return next;
 }
 
-Node* LinkedList::insert_before(string newWord, Node* knownNode){
-   if(knownNode == nullptr){
+Pokemon* Buildings::insert_before(string newWord, Pokemon* knownPokemon){
+   if(knownPokemon == nullptr){
       return nullptr;   
    }   
-   Node* node = new Node(newWord);
+   Pokemon* Pokemon = new Pokemon(newWord);
    
-   node->setNext(knownNode);
-   node->setPrev(knownNode->getPrev());
+   Pokemon->setNext(knownPokemon);
+   Pokemon->setPrev(knownPokemon->getPrev());
    
-   if(knownNode->getPrev() != nullptr){
-      knownNode->getPrev()->setNext(node);   
+   if(knownPokemon->getPrev() != nullptr){
+      knownPokemon->getPrev()->setNext(Pokemon);   
    }
    else{
-      (*this).head = node;   
+      (*this).head = Pokemon;   
    }
    
-   knownNode->setPrev(node);
+   knownPokemon->setPrev(Pokemon);
    (*this).listSize++;
-   return node;
+   return Pokemon;
 }
 
-LinkedList& LinkedList::operator+=(LinkedList& other){
-    Node* otherHead = other.getHead();
-    Node* otherTail = other.getTail();
+Buildings& Buildings::operator+=(Buildings& other){
+    Pokemon* otherHead = other.getHead();
+    Pokemon* otherTail = other.getTail();
 
     if (!otherHead) return *this;
 
@@ -158,7 +158,7 @@ LinkedList& LinkedList::operator+=(LinkedList& other){
     return *this;
 }
 
-void LinkedList::mergeDicts(LinkedList* listB) {
+void Buildings::mergeDicts(Buildings* listB) {
     if (!listB || listB->size() == 0) {
         return;   
     }
@@ -174,12 +174,12 @@ void LinkedList::mergeDicts(LinkedList* listB) {
         return;
     }
    
-    Node* current = (*this).head;
-    Node* current2 = listB->getHead();
+    Pokemon* current = (*this).head;
+    Pokemon* current2 = listB->getHead();
     
     while (current2 != nullptr) {
         if (current->getWord() > current2->getWord()) {
-            Node* next2 = current2->getNext();
+            Pokemon* next2 = current2->getNext();
             
             if (current == (*this).head) {
                 current2->setNext((*this).head);
@@ -195,7 +195,7 @@ void LinkedList::mergeDicts(LinkedList* listB) {
             current2 = next2;
         }
         else if (current->getWord() == current2->getWord()) {
-            Node* temp = current2;
+            Pokemon* temp = current2;
             current2 = current2->getNext();
             delete temp;
         }
@@ -207,11 +207,11 @@ void LinkedList::mergeDicts(LinkedList* listB) {
                 current2->setPrev((*this).tail);
                 (*this).tail = listB->getTail();
                 
-                Node* countNode = current2;
+                Pokemon* countPokemon = current2;
                 int remainCount = 0;
-                while (countNode != nullptr) {
+                while (countPokemon != nullptr) {
                     remainCount++;
-                    countNode = countNode->getNext();
+                    countPokemon = countPokemon->getNext();
                 }
                 (*this).listSize += remainCount;
                 
@@ -225,14 +225,14 @@ void LinkedList::mergeDicts(LinkedList* listB) {
     listB->listSize = 0;
 }
 
-void LinkedList::mergeSort() {
+void Buildings::mergeSort() {
     if (listSize <= 1) {
         return;  
     }
     
-    LinkedList* tempList = new LinkedList();
+    Buildings* tempList = new Buildings();
     
-    Node* current = head;
+    Pokemon* current = head;
     while (current != nullptr) {
         tempList->push_back(current->getWord());
         current = current->getNext();
@@ -241,7 +241,7 @@ void LinkedList::mergeSort() {
     mergeSort(tempList);
     
     while (head != nullptr) {
-        Node* next = head->getNext();
+        Pokemon* next = head->getNext();
         delete head;
         head = next;
     }
@@ -255,16 +255,16 @@ void LinkedList::mergeSort() {
     delete tempList;
 }
 
-void LinkedList::mergeSort(LinkedList* topListPtr) {
+void Buildings::mergeSort(Buildings* topListPtr) {
     if (topListPtr == nullptr || topListPtr->size() <= 1) {
         return;
     }
     
-    LinkedList* leftList = new LinkedList();
-    LinkedList* rightList = new LinkedList();
+    Buildings* leftList = new Buildings();
+    Buildings* rightList = new Buildings();
     
     int mid = topListPtr->size() / 2;
-    Node* current = topListPtr->getHead();
+    Pokemon* current = topListPtr->getHead();
     
     for (int i = 0; i < mid && current != nullptr; i++) {
         leftList->push_back(current->getWord());
@@ -280,7 +280,7 @@ void LinkedList::mergeSort(LinkedList* topListPtr) {
     mergeSort(rightList);
     
     while (topListPtr->getHead() != nullptr) {
-        Node* next = topListPtr->getHead()->getNext();
+        Pokemon* next = topListPtr->getHead()->getNext();
         delete topListPtr->getHead();
         topListPtr->setHead(next);
     }
@@ -295,16 +295,16 @@ void LinkedList::mergeSort(LinkedList* topListPtr) {
 }
 
 
-void LinkedList::print(){
-   Node* current = (*this).head;
+void Buildings::print(){
+   Pokemon* current = (*this).head;
    while(current != nullptr){
       cout << current->getWord() << endl;
       current = current->getNext();
    }
 }
 
-void LinkedList::printReverse(){
-   Node* current = (*this).tail;
+void Buildings::printReverse(){
+   Pokemon* current = (*this).tail;
    while(current != nullptr){
       cout << current->getWord() << endl;
       current = current->getPrev();
