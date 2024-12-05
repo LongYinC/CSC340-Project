@@ -58,11 +58,20 @@ void ProfessorOak::addCenter(Buildings* building, Pokemon* pokemon){
     building -> push_back(pokemon);
 }
 
-void ProfessorOak::removeTeam(Buildings* building, Pokemon* pokemon){}
+void ProfessorOak::removeTeam(Buildings* building, Pokemon* pokemon){
+    cout << "Removed Pokemon from the Team: " << endl;
+    building->deleteWord(pokemon);
+}
+    
+void ProfessorOak::removeNursery(Buildings* building, Pokemon* pokemon){
+    cout << "Removed Pokemon from the Nursery: " << endl;
+    building->deleteWord(pokemon);
+}
 
-void ProfessorOak::removeNursery(Buildings* building, Pokemon* pokemon){}
-
-void ProfessorOak::removeCenter(Buildings* building, Pokemon* pokemon){}
+void ProfessorOak::removeCenter(Buildings* building, Pokemon* pokemon){
+    cout << "Removed Pokemon from the Center: " << endl;
+    building->deleteWord(pokemon);
+}
 
 void ProfessorOak::catchPokemon(Buildings* team, Buildings* center){
     random_device rd;
