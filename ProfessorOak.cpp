@@ -44,32 +44,32 @@ void ProfessorOak::printCenter(Buildings* building){
 }
 
 void ProfessorOak::addTeam(Buildings* building, Pokemon* pokemon){
-    cout << "Add Pokemon to the Team: " << endl;
-    building -> push_back(pokemon);
+    cout << "Add Pokemon to the Team: " << endl; //CHANGE METHOD LATER TO MAKE SURE THAT THE POKEMON BEING ADDED IS IN EITHER NURSERY OR CENTER
+    building -> push_back(pokemon); // USE SEARCH METHOD
 }
 
 void ProfessorOak::addNursery(Buildings* building, Pokemon* pokemon){
-    cout << "Add Pokemon to the Nursery: " << endl;
+    cout << "Add Pokemon to the Nursery: " << endl; //CHANGE METHOD LATER TO MAKE SURE THAT THE POKEMON BEING ADDED IS IN EITHER TEAM OR CENTER
     building -> push_back(pokemon);
 }
 
 void ProfessorOak::addCenter(Buildings* building, Pokemon* pokemon){
-    cout << "Add Pokemon to the Center: " << endl;
+    cout << "Add Pokemon to the Center: " << endl; //CHANGE METHOD LATER TO MAKE SURE THAT THE POKEMON BEING ADDED IS IN EITHER NURSERY OR TEAM
     building -> push_back(pokemon);
 }
 
 void ProfessorOak::removeTeam(Buildings* building, Pokemon* pokemon){
-    cout << "Removed Pokemon from the Team: " << endl;
+    cout << "Removed Pokemon from the Team: " << endl; //MAKE SURE THE POKEMON IS IN THE TEAM
     building->deleteWord(pokemon);
 }
     
 void ProfessorOak::removeNursery(Buildings* building, Pokemon* pokemon){
-    cout << "Removed Pokemon from the Nursery: " << endl;
+    cout << "Removed Pokemon from the Nursery: " << endl; //MAKE SURE THE POKEMON IS IN THE NURSERY
     building->deleteWord(pokemon);
 }
 
 void ProfessorOak::removeCenter(Buildings* building, Pokemon* pokemon){
-    cout << "Removed Pokemon from the Center: " << endl;
+    cout << "Removed Pokemon from the Center: " << endl; //MAKE SURE THE POKEMON IS IN THE CENTER
     building->deleteWord(pokemon);
 }
 
