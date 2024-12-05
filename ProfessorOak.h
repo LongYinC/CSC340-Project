@@ -19,6 +19,6 @@ struct ProfessorOak{
     void removeTeam(Buildings* building, Pokemon* pokemon);
     void removeNursery(Buildings* building, Pokemon* pokemon);
     void removeCenter(Buildings* building, Pokemon* pokemon);
-    void catchPokemon();
+    void catchPokemon(Buildings* team ,Buildings* center);
 };
 #endif
