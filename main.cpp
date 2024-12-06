@@ -37,7 +37,7 @@ int main(){
                 cin >> input;
                 current = center->getHead();
                 if(team->size() < 6){
-                    while(current->getNext() != nullptr){
+                    while(current != nullptr){
                         if(current->getWord() == input){
                             oak->addTeam(team, current);
                             oak->removeCenter(center, current);
@@ -45,7 +45,9 @@ int main(){
                         }
                         current = current->getNext();
                     }
-                    cout << "You do not own this pokemon" << endl;
+                    if(current == nullptr){
+                        cout << "You do not own this pokemon" << endl;
+                    }
                 }
                 else{
                     cout << "Your team has reach it limit" << endl;
@@ -55,16 +57,19 @@ int main(){
             case ADD_NURSERY:
                 cout << "What pokemon do you want to add to the nursery?(Please enter full name)" << endl;
                 cin >> input;
-                current = nursery->getHead();
-                while(current->getNext() != nullptr){
+                current = team->getHead();
+                while(current != nullptr){
                         if(current->getWord() == input){
                             oak->addNursery(nursery, current);
-                            oak->removeCenter(center, current);
+                            oak->removeTeam(team, current);
                             break;
                         }
                         current = current->getNext();
-                    }
+                }
+                if(current == nullptr){
                     cout << "You do not own this pokemon" << endl;
+                }
+                userInput = oak->getMenuOption();
                 break;
             case ADD_CENTER:
                 userInput = oak->getMenuOption();
