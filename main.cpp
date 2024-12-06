@@ -40,7 +40,7 @@ int main(){
                     while(current != nullptr){
                         if(current->getWord() == input){
                             oak->addTeam(team, current);
-                            oak->removeCenter(center, current);
+                            //oak->removeCenter(center, current);
                             break;
                         }
                         current = current->getNext();
@@ -61,7 +61,7 @@ int main(){
                 while(current != nullptr){
                         if(current->getWord() == input){
                             oak->addNursery(nursery, current);
-                            oak->removeTeam(team, current);
+                            //oak->removeTeam(team, current);
                             break;
                         }
                         current = current->getNext();
@@ -78,7 +78,7 @@ int main(){
                 while(current != nullptr){
                         if(current->getWord() == input){
                             oak->addCenter(center, current);
-                            oak->removeTeam(team, current);
+                            //oak->removeTeam(team, current);
                             break;
                         }
                         current = current->getNext();
