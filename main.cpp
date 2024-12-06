@@ -18,6 +18,7 @@ int main(){
     while(active == true){
         switch(userInput){
             case PRINT_TEAM:
+                oak->sortTeam(team);
                 oak->printTeam(team);
                 userInput = oak->getMenuOption();
                 break;

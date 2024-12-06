@@ -104,5 +104,9 @@ void ProfessorOak::catchPokemon(Buildings* team, Buildings* center){
     }
 }
 
+void ProfessorOak::sortTeam(Buildings* building){
+    building->mergeSort();
+}
+
 
 
