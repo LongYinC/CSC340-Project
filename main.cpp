@@ -8,6 +8,11 @@ int main(){
     ProfessorOak* oak = new ProfessorOak();
     int userInput = oak->getMenuOption();
     bool active = true;
+    Buildings * list = new Buildings();
+    list->loadFile("pokemonName.txt");
+    Buildings * team = new Buildings();
+    Buildings * nursery = new Buildings();
+    Buildings * center = new Buildings();
     while(active == true){
         switch(userInput){
             case PRINT_TEAM:
@@ -26,6 +31,15 @@ int main(){
                 userInput = oak->getMenuOption();
                 break;
             case ADD_CENTER:
+                userInput = oak->getMenuOption();
+                break;
+            case REMOVE_TEAM:
+                userInput = oak->getMenuOption();
+                break;
+            case REMOVE_NURSERY:
+                userInput = oak->getMenuOption();
+                break;
+            case REMOVE_CENTER:
                 userInput = oak->getMenuOption();
                 break;
             case CATCH:
