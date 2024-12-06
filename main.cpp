@@ -72,6 +72,20 @@ int main(){
                 userInput = oak->getMenuOption();
                 break;
             case ADD_CENTER:
+                cout << "What pokemon do you want to add to the center?(Please enter full name)" << endl;
+                cin >> input;
+                current = team->getHead();
+                while(current != nullptr){
+                        if(current->getWord() == input){
+                            oak->addCenter(center, current);
+                            oak->removeTeam(team, current);
+                            break;
+                        }
+                        current = current->getNext();
+                }
+                if(current == nullptr){
+                    cout << "You do not own this pokemon" << endl;
+                }
                 userInput = oak->getMenuOption();
                 break;
             case CATCH:
