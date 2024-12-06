@@ -9,6 +9,8 @@ using namespace std;
 int main(){
     ProfessorOak* oak = new ProfessorOak();
     int userInput = oak->getMenuOption();
+    string input;
+    Pokemon * current;
     bool active = true;
     Buildings * list = new Buildings();
     list->loadFile("pokemonName.txt");
@@ -31,6 +33,23 @@ int main(){
                 userInput = oak->getMenuOption();
                 break;
             case ADD_TEAM:
+                cout << "What pokemon do you want to add to your team?(Please enter full name)" << endl;
+                cin >> input;
+                current = center->getHead();
+                if(team->size() < 6){
+                    while(current->getNext() != nullptr){
+                        if(current->getWord() == input){
+                            oak->addTeam(team, current);
+                            oak->removeCenter(center, current);
+                            break;
+                        }
+                        current = current->getNext();
+                    }
+                    cout << "You do not own this pokemon" << endl;
+                }
+                else{
+                    cout << "Your team has reach it limit" << endl;
+                }
                 userInput = oak->getMenuOption();
                 break;
             case ADD_NURSERY:
