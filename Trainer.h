@@ -24,5 +24,6 @@ class Trainer {
       Trainer& operator<(Trainer& other);
 
       virtual void someAbstractMethod() = 0; //give gym badge, give coins,
+};
 
 #endif
