@@ -53,7 +53,18 @@ int main(){
                 userInput = oak->getMenuOption();
                 break;
             case ADD_NURSERY:
-                userInput = oak->getMenuOption();
+                cout << "What pokemon do you want to add to the nursery?(Please enter full name)" << endl;
+                cin >> input;
+                current = nursery->getHead();
+                while(current->getNext() != nullptr){
+                        if(current->getWord() == input){
+                            oak->addNursery(nursery, current);
+                            oak->removeCenter(center, current);
+                            break;
+                        }
+                        current = current->getNext();
+                    }
+                    cout << "You do not own this pokemon" << endl;
                 break;
             case ADD_CENTER:
                 userInput = oak->getMenuOption();
