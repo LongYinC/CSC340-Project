@@ -99,27 +99,34 @@ void Buildings::setTail(Pokemon* tail){
    (*this).tail = tail;   
 }
 
-Pokemon* Buildings::deleteWord(Pokemon* pokemon){
-   if(pokemon == nullptr){
-      return nullptr;   
-   }   
-   
-   Pokemon* next = pokemon->getNext();
-   if(pokemon->getPrev() != nullptr){
-      pokemon->getPrev()->setNext(pokemon->getNext());
-   }
-   else{
-      (*this).head = pokemon->getNext();   
-   }
-   if(pokemon->getNext() != nullptr){
-      pokemon->getNext()->setPrev(pokemon->getPrev()); 
-   }
-   else{
-      (*this).tail = pokemon->getPrev();   
-   }
-   delete pokemon;
-   (*this).listSize--; 
-   return next;
+Pokemon* Buildings::deleteWord(Pokemon* pokemon) {
+    // Check if the provided Pokemon is null
+    if (!pokemon) {
+        return nullptr;
+    }
+
+    // Update head and tail if the Pokemon is at either end
+    if (pokemon == head) {
+        head = pokemon->getNext();
+    }
+    if (pokemon == tail) {
+        tail = pokemon->getPrev();
+    }
+
+    // Update the pointers of adjacent nodes
+    if (pokemon->getPrev()) {
+        pokemon->getPrev()->setNext(pokemon->getNext());
+    }
+    if (pokemon->getNext()) {
+        pokemon->getNext()->setPrev(pokemon->getPrev());
+    }
+
+    // Delete the node and reduce the list size
+    delete pokemon;
+    --listSize;
+
+    // Return nullptr to match the behavior of the working code
+    return nullptr;
 }
 
 Pokemon* Buildings::insert_before(string newWord, Pokemon* knownPokemon){
