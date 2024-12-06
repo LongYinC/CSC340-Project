@@ -58,15 +58,6 @@ int main(){
             case ADD_CENTER:
                 userInput = oak->getMenuOption();
                 break;
-            case REMOVE_TEAM:
-                userInput = oak->getMenuOption();
-                break;
-            case REMOVE_NURSERY:
-                userInput = oak->getMenuOption();
-                break;
-            case REMOVE_CENTER:
-                userInput = oak->getMenuOption();
-                break;
             case CATCH:
                 oak->catchPokemon(team, center);
                 userInput = oak->getMenuOption();
