@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Buildings.h"
+#include "Nursery.h"
+#include "Center.h"
 #include "ProfessorOak.h"
 #include "ProfessorOak.cpp"
 using namespace std;
@@ -16,12 +18,15 @@ int main(){
     while(active == true){
         switch(userInput){
             case PRINT_TEAM:
+                oak->printTeam(team);
                 userInput = oak->getMenuOption();
                 break;
             case PRINT_NURSERY:
+                oak->printNursery(nursery);
                 userInput = oak->getMenuOption();
                 break;
             case PRINT_CENTER:
+                oak->printCenter(center);
                 userInput = oak->getMenuOption();
                 break;
             case ADD_TEAM:
@@ -43,6 +48,7 @@ int main(){
                 userInput = oak->getMenuOption();
                 break;
             case CATCH:
+                oak->catchPokemon(team, center);
                 userInput = oak->getMenuOption();
                 break;
             default:

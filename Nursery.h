@@ -3,7 +3,7 @@
 
 #include "Buildings.h"
 
-class Nursery : public Building {
+class Nursery : public Buildings {
 public:
   Nursery();
   ~Nursery();

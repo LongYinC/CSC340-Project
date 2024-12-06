@@ -34,6 +34,6 @@ struct Buildings{
       void mergeSort();
       void mergeSort(Buildings* topListPtr);
 
-      virtual void someAbstractMethod() = 0; //THIS METHOD SHOULD BE WHAT IS NAP TIME AND HEAL, the derived class' unique methods, i'll edit later
+      //virtual void someAbstractMethod() = 0; //THIS METHOD SHOULD BE WHAT IS NAP TIME AND HEAL, the derived class' unique methods, i'll edit later
 };
 #endif
