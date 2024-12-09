@@ -16,6 +16,7 @@ struct Buildings{
       int size()const;
       Pokemon* getHead()const;
       Pokemon* getTail()const;
+      void reduceSize();
       void setHead(Pokemon* head);
       void setTail(Pokemon* tail);
       Pokemon* deleteWord(Pokemon* pokemon);

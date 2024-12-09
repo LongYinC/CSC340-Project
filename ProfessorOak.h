@@ -17,10 +17,14 @@ struct ProfessorOak{
     void addTeam(Buildings* building, Pokemon* pokemon);
     void addNursery(Buildings* building, Pokemon* pokemon);
     void addCenter(Buildings* building, Pokemon* pokemon);
-    void removeTeam(Buildings* building, Pokemon* pokemon);
-    void removeNursery(Buildings* building, Pokemon* pokemon);
-    void removeCenter(Buildings* building, Pokemon* pokemon);
+    Pokemon* removeTeam(Buildings* building, Pokemon* pokemon);
+    Pokemon* removeNursery(Buildings* building, Pokemon* pokemon);
+    Pokemon* removeCenter(Buildings* building, Pokemon* pokemon);
     void catchPokemon(Buildings* team ,Buildings* center);
     void sortTeam(Buildings* team);
+    void handleAddToTeam(Buildings* team, Buildings* center);
+    void handleAddToNursery(Buildings* team, Buildings* nursery);
+    void handleAddToCenter(Buildings* team, Buildings* center);
+    void runPokemonManager();
 };
 #endif

@@ -69,6 +69,10 @@ int Buildings::size()const{
    return (*this).listSize;   
 }
 
+void Buildings::reduceSize(){
+    (*this).listSize--;
+}
+
 void Buildings::loadFile(string fileName){
    ifstream inFS;
    inFS.open(fileName);
